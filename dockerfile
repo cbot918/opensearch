@@ -24,9 +24,9 @@ RUN mkdir -p /usr/share/opensearch/data && \
 COPY ./config/opensearch.yml /usr/share/opensearch/config/
 COPY ./config/jvm.options /usr/share/opensearch/config/
 
-# Set proper ownership
-RUN chown opensearch:opensearch /usr/share/opensearch/config/opensearch.yml
-RUN chown opensearch:opensearch /usr/share/opensearch/config/jvm.options
+# # Set proper ownership
+# RUN chown opensearch:opensearch /usr/share/opensearch/config/opensearch.yml
+# RUN chown opensearch:opensearch /usr/share/opensearch/config/jvm.options
 
 # Switch to non-root user
 USER opensearch
