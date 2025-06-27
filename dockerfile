@@ -28,6 +28,10 @@ RUN mkdir -p /usr/share/opensearch/data && \
 # RUN chown opensearch:opensearch /usr/share/opensearch/config/opensearch.yml
 # RUN chown opensearch:opensearch /usr/share/opensearch/config/jvm.options
 
+RUN yum install -y wget && \
+    wget -O /usr/local/bin/gosu "https://github.com/tianon/gosu/releases/download/1.16/gosu-amd64" && \
+    chmod +x /usr/local/bin/gosu
+
 # Switch to non-root user
 USER opensearch
 
@@ -38,4 +42,4 @@ EXPOSE 9200 9600
 ENV OPENSEARCH_JAVA_OPTS="-Xms512m -Xmx512m"
 
 # Default command
-CMD ["/usr/share/opensearch/bin/opensearch"]
+CMD ["gosu", "opensearch", "/usr/share/opensearch/bin/opensearch"]
