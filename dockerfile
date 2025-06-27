@@ -20,9 +20,9 @@ RUN mkdir -p /usr/share/opensearch/data && \
     mkdir -p /usr/share/opensearch/logs && \
     chown -R opensearch:opensearch /usr/share/opensearch
 
-# Copy custom configuration files
-COPY ./config/opensearch.yml /usr/share/opensearch/config/
-COPY ./config/jvm.options /usr/share/opensearch/config/
+# # Copy custom configuration files
+# COPY ./config/opensearch.yml /usr/share/opensearch/config/
+# COPY ./config/jvm.options /usr/share/opensearch/config/
 
 # # Set proper ownership
 # RUN chown opensearch:opensearch /usr/share/opensearch/config/opensearch.yml
